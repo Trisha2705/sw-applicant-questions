@@ -1,11 +1,10 @@
 ## Tinkercad Circuit Link
-
 ``````
+https://www.tinkercad.com/things/cmJHeFI3oYV-reaction-time-tester-?sharecode=Gqqmb0y5yZSCxzh7tNF9V1-S90cTkFypqkPnqTwhr-8 
 
 
 ## Program Explanation
 ```
-
 The program is a simple reaction time tester that works using three main states: IDLE, ARMED, and REACTION. In the IDLE state, the LED is off, and the system just waits for the user to press the button to start. Once the button is pressed, the program moves into the ARMED state. Here, I use a random delay between 2 and 10 seconds before the signal comes on. I made the delay random using random() and also used the delay() function to make the LED blink. For example, if the user presses the button too early, it counts as a false start, and the LED flashes really fast for 2 seconds. 
 
 To make the random delay more unpredictable, I used randomSeed(analogRead(0)). This reads an unused analog pin, which is floating, so it picks up a bit of random electrical noise from the environment. This noise gives a different number each time, so the LED signal happens at a different time on each attempt. I found this worked better than just relying on random() alone when I was researching reaction time programs.
