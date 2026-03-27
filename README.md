@@ -1,4 +1,4 @@
-# SW Applicant Questions
+# sw-applicant-questions
 
 Code problems for projects applicants for software
 
@@ -22,15 +22,13 @@ Disclaimer: make sure you do the above correctly BEFORE interview details are re
 
 ## Available projects
 
-1. Tinkercad reaction time tester - `git checkout QUESTION_tinkercad`
+1. Prime sieve optimisation - `git checkout QUESTION_prime`
 2. (more to come with following terms!)
-
-WARNING: only the above problems are valid! If you find another branch which is not listed above, it is a work in progress or retired and **we will not assess submissions to them+**
 
 ## Need help?
 
-Send a message to `#recruitment` on the Bluesat Discord server, tagging `@Software Director` or the user `void.deer`.
+Send a message to `#recruitment` on the Bluesat Discord server, tagging `@Software Director`.
 
 ## For maintainers
 
-Stuck? Contact `void.deer` on Discord.
+Stuck? Contact `mattrr_` on Discord.
