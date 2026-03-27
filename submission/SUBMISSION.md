@@ -1,17 +1,21 @@
 ## Tinkercad Circuit Link
 ``````
-https://www.tinkercad.com/things/cmJHeFI3oYV-reaction-time-tester-?sharecode=Gqqmb0y5yZSCxzh7tNF9V1-S90cTkFypqkPnqTwhr-8 
-
+https://www.tinkercad.com/things/cmJHeFI3oYV-reaction-time-tester-?sharecode=Gqqmb0y5yZSCxzh7tNF9V1-S90cTkFypqkPnqTwhr-8
 
 ## Program Explanation
 ```
-The program is a simple reaction time tester that works using three main states: IDLE, ARMED, and REACTION. In the IDLE state, the LED is off, and the system just waits for the user to press the button to start. Once the button is pressed, the program moves into the ARMED state. Here, I use a random delay between 2 and 10 seconds before the signal comes on. I made the delay random using random() and also used the delay() function to make the LED blink. For example, if the user presses the button too early, it counts as a false start, and the LED flashes really fast for 2 seconds. 
 
-To make the random delay more unpredictable, I used randomSeed(analogRead(0)). This reads an unused analog pin, which is floating, so it picks up a bit of random electrical noise from the environment. This noise gives a different number each time, so the LED signal happens at a different time on each attempt. I found this worked better than just relying on random() alone when I was researching reaction time programs.
+The program is a simple reaction time tester that works using three main states: IDLE, ARMED, and REACTION. In the IDLE state, the LED is off, and the system just waits for the user to press the button to start. Once the button is pressed, the program moves into the ARMED state.
+
+In the ARMED state, I generate a random delay between 2 and 10 seconds before the signal turns on. I used random() for this so the user can’t predict when the LED will light up. I also used delay() to make the LED blink slowly so the user knows the system is active (blinking). For example, if the user presses the button too early, it counts as a false start, and the LED flashes really fast for 2 seconds. 
+
+To make the delay more unpredictable, I used randomSeed(analogRead(0)). This reads a floating analog pin, which picks up random electrical noise. This means the delay changes each time the program runs. I added this after researching so there is no delay pattern.  
 
 During the ARMED state, the LED also slowly blinks to show the system is ready. If the button is pressed during this period, it’s a false start, the LED flashes rapidly as a warning, and the program goes back to IDLE.
 
-Once the random delay finishes, the program enters the REACTION state. The LED turns on fully to tell the user to press the button as fast as they can. The program then measures the time from the LED turning on to the button being pressed using millis(). This is recorded as the user’s reaction time. The program keeps track of the number of attempts, the total reaction time, and the number of false starts. It also calculates the average reaction time and prints all of this to the Serial Monitor so the user can see their performance.
+Once the random delay finishes, the program enters the REACTION state. The LED turns on fully, and the user has to press the button as quickly as possible. I measure the reaction time using millis() by recording when the LED turns on and comparing it to when the button is pressed.
+
+The program keeps track of attempts, total reaction time, and false starts, and prints them to the Serial Monitor. I also calculate the average reaction time so the user can see if they are improving.
 
 The LED also gives visual feedback depending on how fast the user reacted: fast blinking for very quick reactions, medium blinking for average reactions, and slow blinking for slower reactions. The program resets to IDLE.
 
